@@ -1694,6 +1694,7 @@ PHP_MINFO_FUNCTION(gearman) {
 	php_info_print_table_row(2, "Default TCP Host", GEARMAN_DEFAULT_TCP_HOST);
 	snprintf(port_str, 6, "%u", GEARMAN_DEFAULT_TCP_PORT);
 	php_info_print_table_row(2, "Default TCP Port", port_str);
+	php_info_print_table_row(2, "Flag", "fixed out of memory");
 	php_info_print_table_end();
 }
 

@@ -1,3 +1,4 @@
+# Optional REPL history
 .deps
 .libs/
 Makefile
@@ -35,3 +36,15 @@ tests/*.exp
 tests/*.log
 tests/*.out
 tests/*.php
+.svn
+.fis-tmp
+.DS_Store
+.cache
+._*
+*副本*
+.tmp
+.gulp
+.swp
+.tmp_sendtest
+.idea
+.vscode

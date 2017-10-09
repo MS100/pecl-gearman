@@ -391,7 +391,10 @@ static void gearman_client_do_work_handler(void* (*do_work_func)(
                 RETURN_EMPTY_STRING();
         }
 
-        RETURN_STRINGL((char *)result, (long) result_size);
+        RETVAL_STRINGL((char *)result, (long) result_size); 
+        efree(result);
+        return;
+        //RETURN_STRINGL((char *)result, (long) result_size);
 }
 /* }}} */
 
@@ -768,8 +771,8 @@ PHP_FUNCTION(gearman_client_run_tasks) {
         obj->ret = gearman_client_run_tasks(&(obj->client));
 
         if (! PHP_GEARMAN_CLIENT_RET_OK(obj->ret)) {
-                php_error_docref(NULL, E_WARNING, "%s",
-                                                 gearman_client_error(&(obj->client)));
+                php_error_docref(NULL, E_WARNING, "%s", gearman_client_error(&(obj->client)));
+
                 RETURN_FALSE;
         }    
 
